@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIRATE TRAIN | Game Trainers & Data Repository</title>
+    <style>
+        /* Reset و فونت‌ها */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #121212;
+            color: #00ff00;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* هدر */
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px #00ff00;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        /* نوار جستجو */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .search-box {
+            width: 70%;
+            padding: 12px;
+            background: #222;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+        }
+        
+        .search-btn {
+            padding: 12px 20px;
+            background: #00ff00;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        
+        /* محتوای اصلی */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 30px;
+        }
+        
+        .sidebar {
+            background: #1a1a1a;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+        
+        .content {
+            background: #1a1a1a;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+        
+        h2 {
+            color: #00ff00;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #00cc00;
+            margin: 15px 0 10px;
+        }
+        
+        /* لیست بازی‌ها */
+        .game-list {
+            list-style: none;
+        }
+        
+        .game-item {
+            margin-bottom: 15px;
+        }
+        
+        .game-link {
+            color: #00ff00;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+            border-left: 3px solid #00ff00;
+            transition: all 0.3s;
+        }
+        
+        .game-link:hover {
+            background: #333;
+            padding-left: 15px;
+        }
+        
+        /* جدول داده‌ها */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .data-table th, .data-table td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .data-table th {
+            background: #222;
+            color: #00ff00;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background: #222;
+        }
+        
+        .data-table tr:hover {
+            background: #333;
+        }
+        
+        /* دکمه‌ها */
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #00ff00;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .btn-mirror {
+            background: #ff6600;
+            color: #000;
+        }
+        
+        /* فوتر */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-link {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        
+        /* حالت موبایل */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">PIRATE TRAIN</div>
+        <div class="tagline">Game Trainers | Memory Offsets | Cheat Engine Tables</div>
+    </header>
+    
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Search for offsets, pointers, trainers...">
+        <button class="search-btn">SEARCH</button>
+    </div>
+    
+    <div class="main-content">
+        <aside class="sidebar">
+            <h2>GAMES DATABASE</h2>
+            <ul class="game-list">
+                <li class="game-item"><a href="#" class="game-link">Grand Theft Auto V</a></li>
+                <li class="game-item"><a href="#" class="game-link">Cyberpunk 2077</a></li>
+                <li class="game-item"><a href="#" class="game-link">Red Dead Redemption 2</a></li>
+                <li class="game-item"><a href="#" class="game-link">Elden Ring</a></li>
+                <li class="game-item"><a href="#" class="game-link">Call of Duty: Warzone</a></li>
+                <li class="game-item"><a href="#" class="game-link">Assassin's Creed Valhalla</a></li>
+                <li class="game-item"><a href="#" class="game-link">View All Games...</a></li>
+            </ul>
+            
+            <h2>QUICK LINKS</h2>
+            <ul class="game-list">
+                <li class="game-item"><a href="#" class="game-link">Latest Trainers</a></li>
+                <li class="game-item"><a href="#" class="game-link">Memory Editing Guide</a></li>
+                <li class="game-item"><a href="#" class="game-link">Cheat Engine Tutorials</a></li>
+                <li class="game-item"><a href="#" class="game-link">Request a Trainer</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <h2>GRAND THEFT AUTO V - TRAINER DATA</h2>
+            <p>Last updated: 2023-11-15 | Game version: 1.67</p>
+            
+            <h3>Memory Offsets</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Offset</th>
+                        <th>Type</th>
+                        <th>Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Player Health</td>
+                        <td>0x123ABC</td>
+                        <td>Float</td>
+                        <td>1.67</td>
+                    </tr>
+                    <tr>
+                        <td>Player Money</td>
+                        <td>0x456DEF</td>
+                        <td>Int</td>
+                        <td>1.67</td>
+                    </tr>
+                    <tr>
+                        <td>Wanted Level</td>
+                        <td>0x789012</td>
+                        <td>Byte</td>
+                        <td>1.67</td>
+                    </tr>
+                    <tr>
+                        <td>Vehicle God Mode</td>
+                        <td>0x345678</td>
+                        <td>Boolean</td>
+                        <td>1.67</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Pointers</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Pointer Path</th>
+                        <th>Base Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Player Coordinates</td>
+                        <td>GTA5.exe+123ABC -> 78 -> 34 -> 0</td>
+                        <td>0xABCDEF</td>
+                    </tr>
+                    <tr>
+                        <td>Current Vehicle</td>
+                        <td>GTA5.exe+456DEF -> 12 -> 90</td>
+                        <td>0xFEDCBA</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Available Trainers</h3>
+            <a href="#" class="btn btn-mirror">Download Trainer v5.3</a>
+            <a href="#" class="btn">Cheat Engine Table</a>
+            
+            <h3>Trainer Features</h3>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>Infinite Health</li>
+                <li>Unlimited Money</li>
+                <li>No Wanted Level</li>
+                <li>Vehicle God Mode</li>
+                <li>Super Speed</li>
+                <li>Teleport to Waypoint</li>
+            </ul>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#" class="footer-link">Rules</a>
+            <a href="#" class="footer-link">Forum</a>
+            <a href="#" class="footer-link">Donate</a>
+            <a href="#" class="footer-link">Tor Mirror</a>
+            <a href="#" class="footer-link">Contact</a>
+        </div>
+        <p>© 2023 PIRATE TRAIN | All game data is for educational purposes only</p>
+    </footer>
+
+    <script>
+        // اسکریپت‌های ساده جاوااسکریپت
+        document.addEventListener('DOMContentLoaded', function() {
+            // افزودن اثر hover به ردیف‌های جدول
+            const tableRows = document.querySelectorAll('.data-table tr');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#333';
+                });
+                row.addEventListener('mouseleave', function() {
+                    if (this.rowIndex % 2 === 0) {
+                        this.style.backgroundColor = '#222';
+                    } else {
+                        this.style.backgroundColor = '#1a1a1a';
+                    }
+                });
+            });
+            
+            // شبیه‌سازی جستجو
+            const searchBtn = document.querySelector('.search-btn');
+            searchBtn.addEventListener('click', function() {
+                const searchTerm = document.querySelector('.search-box').value;
+                if (searchTerm.trim() !== '') {
+                    alert(`Searching for: ${searchTerm}\n(This is a demo - real search would filter content)`);
+                }
+            });
+            
+            // اجازه دادن به Enter برای جستجو
+            const searchBox = document.querySelector('.search-box');
+            searchBox.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchBtn.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

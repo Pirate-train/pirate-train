@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PIRATE TRAIN | Game Trainers & Data Repository{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="{% url 'index' %}" style="text-decoration: none; color: inherit;">PIRATE TRAIN</a></div>
+        <div class="tagline">Game Trainers | Memory Offsets | Cheat Engine XML</div>
+    </header>
+    
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Search for offsets, pointers, trainers...">
+        <button class="search-btn">SEARCH</button>
+    </div>
+    
+    <div class="main-content">
+        <aside class="sidebar">
+            <h2>GAMES DATABASE</h2>
+            <ul class="game-list">
+                {% for game in games|slice:":6" %}
+                <li class="game-item"><a href="{{ game.get_absolute_url }}" class="game-link">{{ game.title }}</a></li>
+                {% endfor %}
+                <li class="game-item"><a href="{% url 'game_list' %}" class="game-link">View All Games...</a></li>
+            </ul>
+            
+            <h2>QUICK LINKS</h2>
+            <ul class="game-list">
+                <li class="game-item"><a href="#" class="game-link">Latest Trainers</a></li>
+                <li class="game-item"><a href="#" class="game-link">Memory Editing Guide</a></li>
+                <li class="game-item"><a href="#" class="game-link">Cheat Engine Tutorials</a></li>
+                <li class="game-item"><a href="#" class="game-link">Request a Trainer</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#" class="footer-link">Rules</a>
+            <a href="#" class="footer-link">Forum</a>
+            <a href="#" class="footer-link">Donate</a>
+            <a href="#" class="footer-link">Github</a>
+            <a href="#" class="footer-link">Contact</a>
+        </div>
+        <p>© {% now "Y" %} PIRATE TRAIN | All game data is for educational purposes only</p>
+    </footer>
+
+    <script src="{% static 'main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>LATEST TRAINERS</h2>
+<div class="trainer-list">
+    {% for trainer in latest_trainers %}
+    <div class="trainer-item">
+        <h3>{{ trainer.game.title }} Trainer v{{ trainer.version }}</h3>
+        <p>Uploaded: {{ trainer.upload_date }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #121212;
+    color: #00ff00;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/static/pirate-hat.png");
+    background-repeat: repeat;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.1;
+    transform: rotate(-5deg);
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* نوار جستجو */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.search-box {
+    width: 70%;
+    padding: 12px;
+    background: #222;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+}
+
+.search-btn {
+    padding: 12px 20px;
+    background: #00ff00;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+/* محتوای اصلی */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 30px;
+}
+
+.sidebar {
+    background: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #333;
+}
+
+.content {
+    background: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #333;
+}
+
+h2 {
+    color: #00ff00;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #00cc00;
+    margin: 15px 0 10px;
+    
+}
+
+/* لیست بازی‌ها */
+.game-list {
+    list-style: none;
+}
+
+.game-item {
+    margin-bottom: 15px;
+}
+
+.game-link {
+    color: #00ff00;
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    border-left: 3px solid #00ff00;
+    transition: all 0.3s;
+}
+
+.game-link:hover {
+    background: #333;
+    padding-left: 15px;
+}
+
+/* جدول داده‌ها */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
+}
+
+.data-table th {
+    background: #222;
+    color: #00ff00;
+}
+
+.data-table tr:nth-child(even) {
+    background: #222;
+}
+
+.data-table tr:hover {
+    background: #333;
+}
+
+/* دکمه‌ها */
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #00ff00;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+.btn-mirror {
+    background: #ff6600;
+    color: #000;
+}
+
+/* فوتر */
+footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-link {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+/* حالت موبایل */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+}

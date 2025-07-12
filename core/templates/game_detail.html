@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}{{ game.title }} | {{ block.super }}{% endblock %}
+
+{% block content %}
+<h2>{{ game.title|upper }} - TRAINER DATA</h2>
+<p>Last updated: {{ game.last_updated }} | Game version: {{ game.current_version }}</p>
+    
+<h3>Memory Offsets</h3>
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Offset</th>
+            <th>Type</th>
+            <th>Version</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for offset in offsets %}
+        <tr>
+            <td>{{ offset.description }}</td>
+            <td>{{ offset.offset }}</td>
+            <td>{{ offset.get_offset_type_display }}</td>
+            <td>{{ offset.version }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No offsets available for this game.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Pointers</h3>
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Pointer Path</th>
+            <th>Base Address</th>
+            <th>Version</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pointer in pointers %}
+        <tr>
+            <td>{{ pointer.description }}</td>
+            <td>{{ pointer.pointer_path }}</td>
+            <td>{{ pointer.base_address }}</td>
+            <td>{{ pointer.version }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No pointers available for this game.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if trainers %}
+<h3>Available Trainers</h3>
+{% for trainer in trainers %}
+<a href="{{ trainer.download_link }}" class="btn btn-mirror">Download Trainer v{{ trainer.version }}</a>
+<a href="{{ trainer.download_link_ch_xml}}" class="btn">Cheat Engine XML</a>
+{% endfor %}
+
+{% if features %}
+<h3>Trainer Features</h3>
+<ul class="trainer-features" style="margin-left: 20px; margin-bottom: 20px;">
+    {% for line in features.lines %}
+    <li>{{ line }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<p>{{ game.features }}</p>
+{% endif %}
+{% endblock %}
